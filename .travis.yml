@@ -9,9 +9,12 @@ before_install:
   - curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.sh
   - chmod 700 get_helm.sh
   - ./get_helm.sh
-  - helm init --client-only 
+  - helm init --client-only
   - helm repo add stable https://kubernetes-charts.storage.googleapis.com
   - helm repo update
+  - test -d ~/.ssh || mkdir -p ~/.ssh
+  - echo "${BASE64_KEY}" | base64 -d > ~/.ssh/id_rsa
+  - chmod -r 600 ~/.ssh
 install: true
 script:
   - .ci/ci.sh

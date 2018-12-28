@@ -10,7 +10,7 @@ CHART_SOURCE="https://github.com/zammad/helm.git"
 CHART_REPO="https://zammad.github.io"
 DIR_NAME="zammad"
 
-# remove zammad dir fi exist
+# remove zammad dir if exist
 test -d ${REPO_ROOT}/${DIR_NAME} && rm -rf ${REPO_ROOT:=?}/${DIR_NAME:=?}
 
 # get chart source
@@ -28,11 +28,15 @@ cd ..
 # build chart
 helm package ${DIR_NAME}
 
-# build repo index
+# create repo index
 helm repo index --merge index.yaml --url https://zammad.github.io .
 
-# git push
-#git remote add
-# git add --all .
-# git commit -m "added zammad helm chart with version ${CHART_VERSION}"
-# git push
+# push changes to github
+if [ "${TRAVIS}" == 'true' ]; then
+  git config --global user.email "travis@travis-ci.org"
+  git config --global user.name "Travis CI"
+  git remote add origin git@github.com:zammad/zammad.github.io.git
+  git add --all .
+  git commit -m "push zammad chart version ${CHART_VERSION}"
+  git push --set-upstream origin
+fi
