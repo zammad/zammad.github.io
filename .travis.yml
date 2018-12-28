@@ -1,6 +1,4 @@
 dist: xenial
-services:
-  - docker
 before_install:
   - curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.sh
   - chmod 700 get_helm.sh
