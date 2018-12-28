@@ -8,3 +8,6 @@ $ helm repo add https://zammad.github.io
 
 The chart source can be found here:
 * [https://github.com/zammad/helm](https://github.com/zammad/helm)
+
+The repo source can be found here:
+* [https://github.com/zammad/zammad.github.io](https://github.com/zammad/zammad.github.io)
