@@ -10,6 +10,8 @@ CHART_SOURCE="https://github.com/zammad/helm.git"
 CHART_REPO="https://zammad.github.io"
 DIR_NAME="zammad"
 
+# break if last commit
+
 # remove zammad dir if exist
 test -d ${REPO_ROOT}/${DIR_NAME} && rm -rf ${REPO_ROOT:=?}/${DIR_NAME:=?}
 
@@ -39,6 +41,6 @@ if [ "${TRAVIS}" == 'true' ]; then
   git remote add origin git@github.com:zammad/zammad.github.io.git
   git checkout master
   git add --all .
-  git commit -m "push zammad chart version ${CHART_VERSION} via travis build nr: ${TRAVIS_BUILD_NUMBER}"
+  git commit -m "push zammad chart version ${CHART_VERSION} via travis build nr: ${TRAVIS_BUILD_NUMBER} - [skip travis-ci]"
   git push --set-upstream origin master
 fi
