@@ -6,6 +6,9 @@ before_install:
   - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - sudo apt-get update
   - sudo apt-get -o Dpkg::Options::="--force-confnew" -y install docker-ce shellcheck
+  - curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.sh
+  - chmod 700 get_helm.sh
+  - ./get_helm.sh
 install: true
 script:
   - .ci/ci.sh
