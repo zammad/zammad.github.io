@@ -37,5 +37,5 @@ if [ "${TRAVIS}" == 'true' ]; then
   git config --global user.name "Travis CI"
   git add --all .
   git commit -m "push zammad chart version ${CHART_VERSION}"
-  git push --set-upstream origin
+  git push --set-upstream origin master
 fi
