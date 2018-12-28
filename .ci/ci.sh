@@ -37,7 +37,8 @@ if [ "${TRAVIS}" == 'true' ]; then
   git config --global user.name "Travis CI"
   git remote remove origin
   git remote add origin git@github.com:zammad/zammad.github.io.git
+  git checkout -b master
   git add --all .
   git commit -m "push zammad chart version ${CHART_VERSION} via travis build nr: ${TRAVIS_BUILD_NUMBER}"
-  git push --set-upstream origin master --force
+  git push --set-upstream origin master
 fi
