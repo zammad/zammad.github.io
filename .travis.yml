@@ -1,0 +1,24 @@
+dist: xenial
+services:
+  - docker
+before_install:
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get -o Dpkg::Options::="--force-confnew" -y install docker-ce shellcheck
+install: true
+script:
+  - set -e
+  - export REPO_ROOT="$(git rev-parse --show-toplevel)"
+  - git clone https://github.com/zammad/helm.git
+  - rm -r ${REPO_ROOT}/helm/.git
+  - cd helm
+  - export CHART_VERSION="$(grep version: Chart.yaml | sed 's/version: //')"
+  - helm package zammad
+  - helm repo index --merge ${REPO_ROOT}/index.yaml --url https://zammad.github.io .
+  - mv index.yaml ${REPO_ROOT}/index.yaml
+  - mv *.tgz ../
+  - cd ..
+  - git add --all .
+  - git commit -m "added zammad helm chart with version ${CHART_VERSION}"
+  - git push
