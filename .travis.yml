@@ -9,6 +9,7 @@ before_install:
   - curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.sh
   - chmod 700 get_helm.sh
   - ./get_helm.sh
+  - helm init --client-only 
   - helm repo add stable https://kubernetes-charts.storage.googleapis.com
   - helm repo update
 install: true
