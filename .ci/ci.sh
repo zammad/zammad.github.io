@@ -26,6 +26,6 @@ helm package ${DIR_NAME}
 helm repo index --merge index.yaml --url https://zammad.github.io .
 
 #git remote add
-git add --all .
-git commit -m "added zammad helm chart with version ${CHART_VERSION}"
-git push
+# git add --all .
+# git commit -m "added zammad helm chart with version ${CHART_VERSION}"
+# git push
