@@ -35,7 +35,6 @@ helm repo index --merge index.yaml --url https://zammad.github.io .
 if [ "${TRAVIS}" == 'true' ]; then
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis CI"
-  git remote add origin git@github.com:zammad/zammad.github.io.git
   git add --all .
   git commit -m "push zammad chart version ${CHART_VERSION}"
   git push --set-upstream origin
