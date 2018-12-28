@@ -39,5 +39,5 @@ if [ "${TRAVIS}" == 'true' ]; then
   git remote add origin git@github.com:zammad/zammad.github.io.git
   git add --all .
   git commit -m "push zammad chart version ${CHART_VERSION} via travis build nr: ${TRAVIS_BUILD_NUMBER}"
-  git push --set-upstream origin master
+  git push --set-upstream origin master --force
 fi
