@@ -7,10 +7,8 @@ set -ex
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 CHART_SOURCE="https://github.com/zammad/helm.git"
-CHART_REPO="https://zammad.github.io"
+CHART_REPO="git@github.com:zammad/zammad.github.io.git"
 DIR_NAME="zammad"
-
-# break if last commit
 
 # remove zammad dir if exist
 test -d ${REPO_ROOT}/${DIR_NAME} && rm -rf ${REPO_ROOT:=?}/${DIR_NAME:=?}
@@ -38,7 +36,7 @@ if [ "${TRAVIS}" == 'true' ]; then
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis CI"
   git remote remove origin
-  git remote add origin git@github.com:zammad/zammad.github.io.git
+  git remote add origin ${CHART_REPO}
   git checkout master
   git add --all .
   git commit -m "push zammad chart version ${CHART_VERSION} via travis build nr: ${TRAVIS_BUILD_NUMBER} - [skip travis-ci]"
