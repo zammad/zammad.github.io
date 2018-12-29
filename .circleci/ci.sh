@@ -25,6 +25,10 @@ test -d "${REPO_ROOT}/${DIR_NAME}" && rm -r "${REPO_ROOT:=?}/${DIR_NAME:=?}"
 # get chart source
 git clone "${CHART_SOURCE}" "${DIR_NAME}"
 
+ls -al
+ls -al "${REPO_ROOT}"/"${DIR_NAME}"/
+ls -al "${REPO_ROOT}"/"${DIR_NAME}"/zammad
+
 rm -r "${REPO_ROOT}"/"${DIR_NAME}"/zammad/.git
 
 # get chart version
