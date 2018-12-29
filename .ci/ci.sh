@@ -39,13 +39,14 @@ cp ${REPO_ROOT}/${DIR_NAME}/*.tgz ${REPO_ROOT}
 
 # push changes to github
 if [ "${TRAVIS}" == 'true' ]; then
+  rm -rf ${REPO_ROOT}/${DIR_NAME}/zammad/.git
   cd ${REPO_ROOT}
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis CI"
   git remote remove origin
   git remote add origin ${CHART_REPO}
   git checkout master
-  git pull origin master -X ours --allow-unrelated-histories
+  git pull origin master -X ours 
   git add --all .
   git commit -m "push zammad chart version ${CHART_VERSION} via travis build nr: ${TRAVIS_BUILD_NUMBER} - [skip travis-ci]"
   git push --set-upstream origin master
