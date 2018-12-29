@@ -54,7 +54,7 @@ if [ "${CIRCLECI}" == 'true' ]; then
   git config --global user.name "Travis CI"
   git remote remove origin
   git remote add origin "${CHART_REPO}"
-  git checkout master
+  #git checkout master
   git add --all .
   git commit -m "push zammad chart version ${CHART_VERSION} via travis build nr: ${CIRCLE_BUILD_NUM} - [skip ci]"
   git push --set-upstream origin master
