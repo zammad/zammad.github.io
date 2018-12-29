@@ -10,6 +10,15 @@ CHART_SOURCE="https://github.com/zammad/helm.git"
 CHART_REPO="git@github.com:zammad/zammad.github.io.git"
 DIR_NAME="chart"
 
+# create build environemnet
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > /tmp/get_helm.sh
+chmod 700 /tmp/get_helm.sh
+/tmp/get_helm.sh
+helm init --client-only
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+helm repo update
+
+
 # remove zammad dir if exist
 test -d ${REPO_ROOT}/${DIR_NAME} && rm -rf ${REPO_ROOT:=?}/${DIR_NAME:=?}
 
