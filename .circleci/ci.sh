@@ -25,7 +25,7 @@ test -d "${REPO_ROOT}/${DIR_NAME}" && rm -r "${REPO_ROOT:=?}/${DIR_NAME:=?}"
 # get chart source
 git clone "${CHART_SOURCE}" "${DIR_NAME}"
 
-rm -r "${REPO_ROOT}"/"${DIR_NAME}"/.git
+rm -rf "${REPO_ROOT:=?}"/"${DIR_NAME:=?}"/.git
 
 # get chart version
 CHART_VERSION="$(grep version: "${REPO_ROOT}"/"${DIR_NAME}"/zammad/Chart.yaml | sed 's/version: //')"
