@@ -16,7 +16,7 @@ test -d ${REPO_ROOT}/${DIR_NAME} && rm -rf ${REPO_ROOT:=?}/${DIR_NAME:=?}
 # get chart source
 git clone ${CHART_SOURCE} ${DIR_NAME}
 
-rm -rf ${REPO_ROOT}/${DIR_NAME}/zammad/.git
+rm -r ${REPO_ROOT}/${DIR_NAME}/zammad/.git
 
 # get chart version
 CHART_VERSION="$(grep version: ${REPO_ROOT}/${DIR_NAME}/zammad/Chart.yaml | sed 's/version: //')"
@@ -39,14 +39,11 @@ cp ${REPO_ROOT}/${DIR_NAME}/*.tgz ${REPO_ROOT}
 
 # push changes to github
 if [ "${TRAVIS}" == 'true' ]; then
-  rm -rf ${REPO_ROOT}/${DIR_NAME}/zammad/.git
-  cd ${REPO_ROOT}
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis CI"
   git remote remove origin
   git remote add origin ${CHART_REPO}
   git checkout master
-  git pull origin master -X ours 
   git add --all .
   git commit -m "push zammad chart version ${CHART_VERSION} via travis build nr: ${TRAVIS_BUILD_NUMBER} - [skip travis-ci]"
   git push --set-upstream origin master
