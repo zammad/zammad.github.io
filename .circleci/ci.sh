@@ -36,7 +36,6 @@ cd "${DIR_NAME}"/zammad || exit
 helm dependency build
 )
 
-
 # build chart
 helm package zammad
 
