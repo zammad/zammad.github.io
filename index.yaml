@@ -3,11 +3,11 @@ entries:
   zammad:
   - apiVersion: v1
     appVersion: 2.8.0
-    created: 2018-12-29T00:44:25.190594449+01:00
+    created: 2018-12-29T13:12:25.943917068+01:00
     description: Zammad is a web based open source helpdesk/customer support system
       with many features to manage customer communication via several channels like
       telephone, facebook, twitter, chat and e-mails.
-    digest: 5cc2338ccd47827aac7cab7eab7c9614a6c1debee89ddd9a9edeba876277351d
+    digest: 5483204d11e5b7bf8143d71a2d3a861b3fb377dc6466fdf03a04ffcc7df57989
     home: https://zammad.org
     icon: https://zammad.org/assets/images/zammad%20community%20logo.svg
     maintainers:
@@ -21,4 +21,4 @@ entries:
     urls:
     - https://zammad.github.io/zammad-0.1.0.tgz
     version: 0.1.0
-generated: 2018-12-29T00:44:25.188397004+01:00
+generated: 2018-12-29T13:12:25.941687978+01:00
