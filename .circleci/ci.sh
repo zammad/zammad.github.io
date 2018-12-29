@@ -37,6 +37,7 @@ helm dependency build
 )
 
 # build chart
+cd "${DIR_NAME}"
 helm package zammad
 
 test -f "${REPO_ROOT}"/index.yaml && cp "${REPO_ROOT}"/index.yaml "${REPO_ROOT}"/"${DIR_NAME}"/index.yaml
