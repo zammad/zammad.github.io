@@ -37,7 +37,7 @@ helm dependency build
 )
 
 # build chart
-cd "${DIR_NAME}"
+cd "${REPO_ROOT:=?}"/"${DIR_NAME:=?}"
 helm package zammad
 
 test -f "${REPO_ROOT}"/index.yaml && cp "${REPO_ROOT}"/index.yaml "${REPO_ROOT}"/"${DIR_NAME}"/index.yaml
@@ -50,12 +50,13 @@ cp "${REPO_ROOT}"/"${DIR_NAME}"/*.tgz "${REPO_ROOT}"
 
 # push changes to github
 if [ "${CIRCLECI}" == 'true' ]; then
+  cd "${REPO_ROOT:=?}"
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis CI"
   git remote remove origin
   git remote add origin "${CHART_REPO}"
   #git checkout master
   git add --all .
-  git commit -m "push zammad chart version ${CHART_VERSION} via travis build nr: ${CIRCLE_BUILD_NUM} - [skip ci]"
+  git commit -m "push zammad chart version ${CHART_VERSION} via circleci build nr: ${CIRCLE_BUILD_NUM} - [skip ci]"
   git push --set-upstream origin master
 fi
