@@ -46,6 +46,6 @@ if [ "${TRAVIS}" == 'true' ]; then
   git checkout master
   git add --all .
   git commit -m "push zammad chart version ${CHART_VERSION} via travis build nr: ${TRAVIS_BUILD_NUMBER} - [skip travis-ci]"
-  git pull -X ours
+  git pull origin master -X ours
   git push --set-upstream origin master
 fi
