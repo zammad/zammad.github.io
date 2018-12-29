@@ -39,6 +39,7 @@ cp ${REPO_ROOT}/${DIR_NAME}/*.tgz ${REPO_ROOT}
 
 # push changes to github
 if [ "${TRAVIS}" == 'true' ]; then
+  cd ${REPO_ROOT}
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis CI"
   git remote remove origin
