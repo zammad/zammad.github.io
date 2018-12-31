@@ -1,5 +1,5 @@
 # zammad.github.io
-Helm repo for Zammad Chart
+Helm repo for Zammad Helm chart
 
 Add the repo via:
 ```console
