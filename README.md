@@ -3,7 +3,7 @@ Helm repo for Zammad Helm chart
 
 Add the repo via:
 ```console
-$ helm repo add https://zammad.github.io
+$ helm repo add zammad https://zammad.github.io
 ```
 
 The chart source code can be found here:
