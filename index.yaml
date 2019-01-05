@@ -6,7 +6,6 @@ entries:
     created: 2019-01-05T15:28:17.79584011Z
     description: Zammad is a web based open source helpdesk/customer support system
       with many features to manage customer communication via several channels like.circleci/test.sh
-tmp
       telephone, facebook, twitter, chat and e-mails.
     digest: be54e9e05260a14a9f959ef0483a3b1b7e90afe0445952f4f04f48b43222b890
     home: https://zammad.org
