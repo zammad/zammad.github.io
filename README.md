@@ -1,5 +1,5 @@
 # zammad.github.io
-[Helm](https://helm.sh) repo for [Zammad](https://zammad.org) Helm chart
+[Helm](https://helm.sh) repo for [Zammad](https://zammad.org) Helm chart which can be installed on [Kubernetes](https://kubernetes.io)
 
 Add the repo via:
 ```console
